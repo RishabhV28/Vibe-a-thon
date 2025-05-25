@@ -110,7 +110,7 @@ export default function VoiceAssistant() {
       setAiResponse(result.response);
 
       // Handle different intents
-      if (result.intent === "search" && result.matchingProducts?.length > 0) {
+      if (result.intent === "search" && result.matchingProducts && result.matchingProducts.length > 0) {
         // Apply search filters based on AI understanding
         const searchParams = new URLSearchParams();
         if (result.filters.brand) searchParams.set('brand', result.filters.brand);
