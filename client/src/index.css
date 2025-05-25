@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  --background: 0 0% 0%; /* #000000 */
+  --foreground: 0 0% 100%; /* #FFFFFF */
+  --muted: 0 0% 16.5%; /* #2A2A2A */
+  --muted-foreground: 0 0% 40%; /* #666666 */
+  --popover: 0 0% 10.2%; /* #1A1A1A */
+  --popover-foreground: 0 0% 100%; /* #FFFFFF */
+  --card: 0 0% 10.2%; /* #1A1A1A */
+  --card-foreground: 0 0% 100%; /* #FFFFFF */
+  --border: 0 0% 31.4%; /* #505050 */
+  --input: 0 0% 31.4%; /* #505050 */
+  --primary: 150 100% 50%; /* #00FF88 */
+  --primary-foreground: 0 0% 0%; /* #000000 */
+  --secondary: 0 0% 10.2%; /* #1A1A1A */
+  --secondary-foreground: 0 0% 100%; /* #FFFFFF */
+  --accent: 150 100% 50%; /* #00FF88 */
+  --accent-foreground: 0 0% 0%; /* #000000 */
+  --destructive: 0 84.2% 60.2%; /* #EF4444 */
+  --destructive-foreground: 0 0% 100%; /* #FFFFFF */
+  --ring: 150 100% 50%; /* #00FF88 */
+  --radius: 0.5rem;
+  
+  /* Chart colors */
+  --chart-1: 150 100% 50%; /* #00FF88 */
+  --chart-2: 200 100% 50%; /* #00AAFF */
+  --chart-3: 280 100% 50%; /* #AA00FF */
+  --chart-4: 45 100% 50%; /* #FFAA00 */
+  --chart-5: 0 100% 50%; /* #FF0000 */
+
+  /* Sidebar colors */
+  --sidebar-background: 0 0% 10.2%; /* #1A1A1A */
+  --sidebar-foreground: 0 0% 100%; /* #FFFFFF */
+  --sidebar-primary: 150 100% 50%; /* #00FF88 */
+  --sidebar-primary-foreground: 0 0% 0%; /* #000000 */
+  --sidebar-accent: 0 0% 16.5%; /* #2A2A2A */
+  --sidebar-accent-foreground: 0 0% 100%; /* #FFFFFF */
+  --sidebar-border: 0 0% 31.4%; /* #505050 */
+  --sidebar-ring: 150 100% 50%; /* #00FF88 */
+}
+
+.dark {
+  --background: 0 0% 0%; /* #000000 */
+  --foreground: 0 0% 100%; /* #FFFFFF */
+  --muted: 0 0% 16.5%; /* #2A2A2A */
+  --muted-foreground: 0 0% 40%; /* #666666 */
+  --popover: 0 0% 10.2%; /* #1A1A1A */
+  --popover-foreground: 0 0% 100%; /* #FFFFFF */
+  --card: 0 0% 10.2%; /* #1A1A1A */
+  --card-foreground: 0 0% 100%; /* #FFFFFF */
+  --border: 0 0% 31.4%; /* #505050 */
+  --input: 0 0% 31.4%; /* #505050 */
+  --primary: 150 100% 50%; /* #00FF88 */
+  --primary-foreground: 0 0% 0%; /* #000000 */
+  --secondary: 0 0% 10.2%; /* #1A1A1A */
+  --secondary-foreground: 0 0% 100%; /* #FFFFFF */
+  --accent: 150 100% 50%; /* #00FF88 */
+  --accent-foreground: 0 0% 0%; /* #000000 */
+  --destructive: 0 84.2% 60.2%; /* #EF4444 */
+  --destructive-foreground: 0 0% 100%; /* #FFFFFF */
+  --ring: 150 100% 50%; /* #00FF88 */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-space {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent));
+}
+
+/* Animation for voice assistant */
+@keyframes pulse-green {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-green {
+  animation: pulse-green 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Hover effects */
+.group:hover .group-hover\:scale-105 {
+  transform: scale(1.05);
+}
+
+/* Loading skeleton animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--muted)) 0%,
+    hsl(var(--border)) 50%,
+    hsl(var(--muted)) 100%
+  );
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
